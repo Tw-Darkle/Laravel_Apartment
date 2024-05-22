@@ -25,6 +25,7 @@ Route::get('/admin/report', function() {return view('/admin/report');});
 Route::get('/user/room', function() {return view('/user/room');});
 Route::get('/user/bill', function() {return view('/user/bill');});
 Route::get('/user/datapersonal', function() {return view('/user/datapersonal');});
+Route::get('/user/datapay', function() {return view('/user/datapay');});
 Route::get('/user/report', function() {return view('/user/report');});
 
 

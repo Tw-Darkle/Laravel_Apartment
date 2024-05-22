@@ -10,6 +10,7 @@
             <li><a href="/user/room">ห้อง</a></li>
             <li><a href="/user/bill">ใบเเจ้งหนี้</a></li>
             <li><a href="/user/datapersonal">ข้อมูลส่วนตัว</a></li>
+            <li><a href="/user/datapay">ประวัติการชำระเงิน</a></li>
             <li><a href="/user/report">เเจ้งซ่อม</a></li>
         </ul>
     </div>
