@@ -1,0 +1,45 @@
+.name-page {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--textcolor);
+}
+
+.status-room {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.status-room span {
+    font-size: 1.5rem;
+}
+
+.card-data-room {
+    margin: 40px;
+}
+
+.card-data-room {
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.card-data-room .card {
+    border: 1px solid var(--border-content) !important;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card-data-room .card {
+    width: 120px;
+}
+
+.card-data-room .card .card-header {
+    padding: none !important;
+    background-color: #ffdda1;
+}
+
+.card-body {
+    height: 100px;
+}

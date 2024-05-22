@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-bar:rgba(253, 204, 113, 0.87);
+    --background:hsl(54, 53%, 85%);
+    --border-content:rgba(253, 204, 113, 0.603);
+    --textcolor:#6451b4;
+}

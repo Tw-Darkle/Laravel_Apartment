@@ -1,0 +1,73 @@
+.slidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--background-bar);
+    width: 18%;
+    border-radius: 20px;
+    text-align: center;
+    margin: 20px;
+    border: 1px solid var(--border-content);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}    
+
+a {
+    text-decoration: none !important;
+    color: var(--bs-card-cap-bg) !important ;
+}
+
+.menu {
+
+    display: flex;
+    justify-content: center;
+}
+
+.link-menu {
+    list-style-type: none;
+    padding-left: 0px ;
+}
+
+li {
+    padding: 10px;
+    font-size: 1.5rem ;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    width: 200px;
+    transition: 0.5s ease-in-out;
+    margin-bottom: 10px;
+}
+
+li:hover {
+    scale: 1.05;
+}
+
+.name-apartment {
+    font-size: 2rem;
+}
+
+.logo-apartment{
+    margin-top: 40px;
+}
+
+img {
+    width: 120px;
+    height: 120px;
+    border-radius: 2rem;
+}
+
+.name-user {
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.logout {
+    font-size: 1rem;
+    padding: 1rem;
+    color: var(--textcolor);
+    background-color: rgb(187, 185, 185);
+    margin-bottom: 40px;
+    border-radius: 10px ;
+    width: 150px !important;
+    border: 1px solid var(--border-content);
+}

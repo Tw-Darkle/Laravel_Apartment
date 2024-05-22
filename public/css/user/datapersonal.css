@@ -1,0 +1,29 @@
+.name-page {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--textcolor);
+}
+
+.datarenters {
+    background-color: white;
+    width: 70%;
+    height: 80%;
+    margin: 2rem 2rem 15% 15%;
+    padding: 1.2rem;
+    border-radius: 20px;
+}
+
+.datarenters .input-group {
+    width: 70%;
+}
+
+.datarenters .up-file {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.datarenters .up-file img {
+    border-radius: 0;
+}

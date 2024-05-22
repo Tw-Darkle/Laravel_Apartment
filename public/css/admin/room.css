@@ -1,0 +1,127 @@
+.room {
+    margin: 15px;
+}
+
+.dataroom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.room .dataroom .card {
+    width: 115px;
+    text-align: center;
+}
+
+.popupform {
+    position: absolute;
+    display: none;
+    height: 500px;
+    width: 800px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    left: 20rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-content);
+    z-index: 10;
+    background-color: var(--background);
+}
+
+.popupform p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 40px 0px 40px 0px;
+    color: #6451b4;
+}
+
+.popupform .input-group {
+    width: 500px !important;
+}
+
+.btns-sub-close {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 80px;
+}
+
+.input-group-text {
+    background-color: #ffdda1;
+}
+
+.dataroom .card .card-header {
+    background-color: #ffdda1 !important;
+}
+
+.dataroom .card {
+    border: 1px solid var(--border-content) !important;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card-data-room {
+    margin: 40px;
+}
+
+.card-data-room {
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.card-data-room .card {
+    width: 120px;
+}
+
+.card-data-room .card .card-header {
+    padding: none !important;
+}
+
+.show-data {
+    position: absolute;
+    display: none;
+    height: 500px;
+    width: 800px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    left: 20rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-content);
+    z-index: 100;
+    background-color: var(--background);
+}
+
+.show-data p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 40px 0px 40px 0px;
+    color: var(--textcolor);
+}
+
+.show-data .input-group {
+    width: 500px !important;
+}
+
+.edit-data {
+    position: absolute;
+    display: none;
+    height: 500px;
+    width: 800px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    left: 20rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-content);
+    z-index: 100;
+    background-color: var(--background);
+}
+
+.edit-data p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 40px 0px 40px 0px;
+    color: #6451b4;
+}
+
+.edit-data .input-group {
+    width: 500px !important;
+}

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-bar:rgb(255, 212, 131);
+    --background:hsl(54, 53%, 85%);
+    --border-content:rgba(253, 204, 113, 0.603);
+    --textcolor:#6451b4;
+
+}
+   
+.layout-wrap {
+    display: flex;
+    flex-direction: row;
+    background-color:var(--background);
+    height: 100vh;
+}
+
+.show-content { 
+    position: relative; 
+    width: 82%;
+    margin: 20px;
+    border: 1px solid var(--border-content);
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
