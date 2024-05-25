@@ -14,7 +14,7 @@
                     <tr>
                         <th scope="col">เลขห้อง</th>
                         <th scope="col">ข้อมูลการเเจ้ง</th>
-                        <th scope="col"> รายละเอียดการเเจ้ง </th>
+                        <th scope="col"> รายละเอียดเพิ่มเติม </th>
                         <th scope="col">สถานะการซ่อม</th>
                     </tr>
                 </thead>
