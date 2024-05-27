@@ -94,6 +94,12 @@
                 </tr>
             </tbody>
         </table>
+        
+        <div class=" mt-2 img-data-pay">
+            หลักฐานการชำระเงิน : โอนจ่าย    
+            <img src="" alt=""  width="150">
+        </div>
+        <button type="button" class="btn-close" aria-label="Close"></button>
     </div>
 @endsection
 

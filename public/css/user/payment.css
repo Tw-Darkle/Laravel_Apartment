@@ -60,3 +60,13 @@
     margin-top: 1.5rem;
 }
 
+.img-data-pay {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-data-pay img{
+    border-radius: 0;
+}
