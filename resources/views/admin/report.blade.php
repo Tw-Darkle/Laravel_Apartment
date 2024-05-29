@@ -7,11 +7,12 @@
 
 @section('content')
     <div class="report">
-        <p> เรื่องเเจ้งซ่อม </p>
+        <p> รับเรื่องเเจ้งซ่อม </p>
         <div class="table-bg ">
             <table class="table table-bordered container ">
                 <thead class="table-light">
                     <tr>
+                        <th scope="col">วัน/เดือน/ปี</th>
                         <th scope="col">เลขห้อง</th>
                         <th scope="col">ข้อมูลการเเจ้ง</th>
                         <th scope="col"> รายละเอียดเพิ่มเติม </th>
@@ -20,6 +21,7 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>1</td>
                         <td>1</td>
                         <td></td>
                         <td type="btn" data-bs-toggle="modal" data-bs-target="#showDataReport">ข้อมูล</td>

@@ -29,7 +29,7 @@
                             </div>
                         </td>
                         <td>
-                            <div onclick="additional()">เพิ่มเติม</div>
+                            <div onclick="datapayment()">เพิ่มเติม</div>
                         </td>
                     </tr>
                 </tbody>
@@ -38,7 +38,7 @@
     </div>
 
     {{--  peyment history   --}}
-    <div class="payment-history" id="">
+    <div class="payment-history" id="PaymentHistory">
         <p>ใบเสร็จชำระเงินค่าห้อง</p>
         <span class="mt-2"> ห้อง </span><span class="mt-2"> ประจำเดือน ปี </span>
         <table class="table table-bordered border-dark container mt-4">
@@ -99,7 +99,10 @@
             หลักฐานการชำระเงิน : โอนจ่าย    
             <img src="" alt=""  width="150">
         </div>
-        <button type="button" class="btn-close" aria-label="Close"></button>
+
+        <div class="btns-sub-close mt-4">
+            <button type="reset" class="btn btn-danger" id="closePopup" onclick="closepopup()">ยกเลิก</button>
+        </div>
     </div>
 @endsection
 

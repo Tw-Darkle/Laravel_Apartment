@@ -3,4 +3,48 @@
     justify-content: center;
     font-size: 3rem;
     color: var(--textcolor);
+    margin-bottom: 3rem;
+}
+
+.btn-report {
+    margin-left: 10%;
+}
+
+.table-report {
+    margin: 15px;
+}
+
+.table-report  p {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.table-report .table-bg {
+    position: absolute;
+    left: 20%;
+    background-color: white;
+    width: 60% !important;
+    height: 600px;
+    padding: 20px;
+    border-radius: 20px;
+    overflow-y: auto;
+    z-index: 0;
+}
+
+.table-report .table-bg::-webkit-scrollbar {
+ display: none;
+}
+
+.table {
+    width:80% !important;
+}
+
+.modal .modal-body .box-text {
+    width: 80%;
+}
+
+.modal .modal-footer {
+    justify-content: space-evenly;
+    padding: 10px;
 }

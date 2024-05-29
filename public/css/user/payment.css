@@ -30,7 +30,7 @@
 }
 
 .payment-history {
-    /* display: none; */
+    display: none;
     position: absolute;
     height: 700px;
     width: 1000px;
@@ -69,4 +69,9 @@
 
 .img-data-pay img{
     border-radius: 0;
+}
+
+.btns-sub-close {
+    display: flex;
+    justify-content: space-evenly;
 }

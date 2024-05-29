@@ -9,7 +9,7 @@
     color: var(--textcolor);
 }
 
-.table-bg {
+.bill .table-bg {
     position: absolute;
     left: 20%;
     background-color: white;
@@ -21,11 +21,12 @@
     z-index: 0;
 }
 
+
 .table-bg::-webkit-scrollbar {
  display: none;
 }
 
-.table {
+.bill .table {
     width:80% !important;
 }
 
@@ -56,6 +57,15 @@
     background-color: var(--background);
 }
 
+.data-bill .table-bg {
+    margin-left: 10%;
+    width: 80% !important;
+    background: #fff;
+    height: 500px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
 .data-bill p {
     display: flex;
     justify-content: center;
@@ -74,10 +84,10 @@
     text-align: end;
 }
 
-.btns-sub-close {
-    margin-top: 10rem;
+.data-bill .btns-sub-close {
+    margin-top: 2rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:center;
 }
 
 .show-data-pay {
