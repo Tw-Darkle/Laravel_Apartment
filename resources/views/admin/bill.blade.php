@@ -28,7 +28,7 @@
                             </div>
                         </td>
                         <td>
-                            <div class="status-pay" onclick="showPay()">
+                            <div class="status-pay" >
                                 ชำระเงินเรียบร้อย
                             </div>
                         </td>
@@ -45,8 +45,8 @@
     <div class=" data-bill" id="dataBill">
         <p> ประวัติการชำระเงิน </p>
         <div class="table-bg ">
-            <table class="table table-bordered container ">
-                <thead class="table-light">
+            <table class="table table-bordered container border-dark ">
+                <thead class="table border-dark ">
                     <tr>
                         <th scope="col">วัน/เดือน/ปี</th>
                         <th scope="col">สถานะการชำระเงิน</th>
@@ -58,7 +58,7 @@
                     <tr>
                         <td>1</td>
                         <td></td>
-                        <td></td>
+                        <td onclick="DataPayment()"></td>
                         <td onclick="DataBills()"></td>
                     </tr>
                 </tbody>

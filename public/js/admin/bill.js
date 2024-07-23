@@ -2,14 +2,12 @@
 function additional() {
     if(document.getElementById("dataBill").style.display ===""||document.getElementById("dataBill").style.display ==="none"){
         document.getElementById("dataBill").style.display = "block";
-        document.getElementById("showDataPay").style.display = "none";
     }
 }
 
 function DataPayment() {
     if(document.getElementById("dataBill").style.display ===""||document.getElementById("dataBill").style.display ==="none"){
         document.getElementById("dataBill").style.display = "block";
-        document.getElementById("showDataPay").style.display = "none";
     }
 }
 
