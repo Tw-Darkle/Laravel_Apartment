@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('meters', function (Blueprint $table) {
             $table->id();
-            $table->string('numroom')->nullable();
-            $table->string('typeroom');
-            $table->string('statusroom');
-            $table->integer('watermeter');
-            $table->integer('electrimeter');
+            $table->string('numroom');
+            $table->integer('beforeWM');
+            $table->integer('beforeEVM');
+            $table->integer('afterWM');
+            $table->integer('afterEVM');
+            $table->integer('totalWM')->default(0);
+            $table->integer('totalEV')->default(0);
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('meters');
     }
 };

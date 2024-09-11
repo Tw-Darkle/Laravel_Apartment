@@ -13,7 +13,7 @@
                     ห้องทั้งหมด
                 </div>
                 <div class="card-body">
-
+                    {{ $totalRoom }}
                 </div>
             </div>
             <div class="card">
@@ -21,15 +21,7 @@
                     ห้องว่าง
                 </div>
                 <div class="card-body">
-
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    ติดจอง
-                </div>
-                <div class="card-body">
-
+                    {{ $blankRoom }}
                 </div>
             </div>
             <div class="card">
@@ -37,7 +29,15 @@
                     เข้าพัก
                 </div>
                 <div class="card-body">
-
+                    {{ $unblankRoom }}
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    ติดจอง
+                </div>
+                <div class="card-body">
+                    {{ $bookRoom }}
                 </div>
             </div>
         </div>
@@ -59,8 +59,8 @@
 
     <!-- Modal Form create card room-->
 
-    <form class="modal fade" id="formroom" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true" method="POST" action="/store">
+    <form class="modal fade needs-validation" id="formroom" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" method="POST" action="/storeRoom">
         <div class="modal-dialog ">
             <div class="modal-content">
                 <div class="modal-header">
@@ -72,11 +72,9 @@
                     <div class="input-group mb-3 container">
                         <span class="input-group-text">เลขห้อง</span>
                         <input type="text" class="form-control" aria-label="numroom" name="numroom">
-                        @error('numroom')
-                            <div class=" container">
-                                <span>{{ $message }}</span>
-                            </div>
-                        @enderror
+                        <div class="invalid-feedback error-message">
+                            กรุณาเลือกประเภทห้อง
+                        </div>
                     </div>
 
                     <div class="input-group mb-3 container">
@@ -86,11 +84,9 @@
                             <option value="ห้องแอร์">ห้องแอร์</option>
                             <option value="ห้องพัดลม">ห้องพัดลม</option>
                         </select>
-                        @error('typeroom')
-                            <div class=" container">
-                                <span>{{ $message }}</span>
-                            </div>
-                        @enderror
+                        <div class="invalid-feedback error-message">
+                            กรุณาเลือกประเภทห้อง
+                        </div>
                     </div>
 
                     <div class="input-group mb-3 container">
@@ -101,11 +97,9 @@
                             <option value="ห้องไม่ว่าง">ห้องไม่ว่าง</option>
                             <option value="ติดจอง">ติดจอง</option>
                         </select>
-                        @error('statusroom')
-                            <div class=" container">
-                                <span>{{ $message }}</span>
-                            </div>
-                        @enderror
+                        <div class="invalid-feedback error-message">
+                            กรุณาเลือกสถานะห้อง
+                        </div>
                     </div>
 
                     <div class="input-group mb-3 container">
@@ -113,18 +107,12 @@
                         <input type="text" class="form-control" aria-label="watermeter" name="watermeter">
                         <span class="input-group-text">มิเตอร์ไฟ</span>
                         <input type="text" class="form-control" aria-label="electrimeter" name="electrimeter">
-                        @error('watermeter')
-                            <div class=" container">
-                                <span>{{ $message }}</span>
-                            </div>
-                        @enderror
-                        <span>
-                            @error('electrimeter')
-                                <div class=" container">
-                                    <span>{{ $message }}</span>
-                                </div>
-                            @enderror
-                        </span>
+                        <div class="invalid-feedback error-message">
+                            กรุณากรอกมิเตอร์น้ำ
+                        </div>
+                        <div class="invalid-feedback error-message">
+                            กรุณากรอกมิเตอร์ไฟ
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -161,10 +149,11 @@
         @endforeach
     </div>
 
+
     <!-- Modal Show Card Data Room -->
 
     @foreach ($rooms as $item)
-        <div class="modal fade" id="showdata{{ $item->id }}" tabindex="-1" aria-labelledby="showdataModalLabel"
+        <div class="modal fade " id="showdata{{ $item->id }}" tabindex="-1" aria-labelledby="showdataModalLabel" data-bs-backdrop="static" data-bs-keyboard="false"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -202,8 +191,7 @@
                     </div>
                     <div class="modal-footer">
                         <a type="button" class="btn btn-danger" href="{{ route('delete.room', $item->id) }}">ลบห้อง</a>
-                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                            data-bs-target="#editRoom{{ $item->id }}">แก้ไขข้อมูล</button>
+                        <button type="button" class="btn btn-warning edit-button" data-bs-toggle="modal" data-bs-target="#editRoom{{ $item->id }}">แก้ไขข้อมูล</button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ปิด</button>
                     </div>
                 </div>
@@ -215,8 +203,9 @@
     <!-- Modal Form Edit Card Data Room-->
 
     @foreach ($rooms as $item)
-        <form class="modal fade" id="editRoom{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="editRoomModalLabel" aria-hidden="true" method="POST" action="{{ route('update.room', $item->id) }}">
+        <form class="modal fade editRoom " id="editRoom{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="editRoomModalLabel" aria-hidden="true" method="POST"
+            action="{{ route('update.room', $item->id) }}">
             <div class="modal-dialog ">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -229,72 +218,46 @@
                         <div class="input-group mb-3 container">
                             <span class="input-group-text">เลขห้อง</span>
                             <input type="text" class="form-control" aria-label="numroom" name="numroom"
-                                value="{{ $item->numroom }}" >
-                            @error('numroom')
-                                <div class=" container">
-                                    <span>{{ $message }}</span>
-                                </div>
-                            @enderror
+                                value="{{ $item->numroom }}">
                         </div>
 
                         <div class="input-group mb-3 container">
                             <label class="input-group-text" for="inputGroupSelect02">ประเภทห้อง</label>
                             <select class="form-select" id="inputGroupSelect02" name="typeroom">
                                 <option selected>โปรดเลือก...</option>
-                                <option value="ห้องแอร์" {{ $item->typeroom == 'ห้องแอร์' ? 'selected' : '' }} >
+                                <option value="ห้องแอร์" {{ $item->typeroom == 'ห้องแอร์' ? 'selected' : '' }}>
                                     ห้องแอร์</option>
-                                <option value="ห้องพัดลม" {{ $item->typeroom == 'ห้องพัดลม' ? 'selected' : '' }} >
+                                <option value="ห้องพัดลม" {{ $item->typeroom == 'ห้องพัดลม' ? 'selected' : '' }}>
                                     ห้องพัดลม</option>
                             </select>
-                            @error('typeroom')
-                                <div class=" container">
-                                    <span>{{ $message }}</span>
-                                </div>
-                            @enderror
                         </div>
 
                         <div class="input-group mb-3 container">
                             <label class="input-group-text" for="inputGroupSelect02">สถานะห้อง</label>
                             <select class="form-select" id="inputGroupSelect02" name="statusroom">
                                 <option selected>โปรดเลือก...</option>
-                                <option value="ห้องว่าง" {{ $item->statusroom == 'ห้องว่าง' ? 'selected' : '' }} >
+                                <option value="ห้องว่าง" {{ $item->statusroom == 'ห้องว่าง' ? 'selected' : '' }}>
                                     ห้องว่าง</option>
-                                <option value="ห้องไม่ว่าง" {{ $item->statusroom == 'ห้องไม่ว่าง' ? 'selected' : '' }} >
+                                <option value="ห้องไม่ว่าง" {{ $item->statusroom == 'ห้องไม่ว่าง' ? 'selected' : '' }}>
                                     ห้องไม่ว่าง</option>
-                                <option value="ติดจอง" {{ $item->statusroom == 'ติดจอง' ? 'selected' : '' }} >ติดจอง
+                                <option value="ติดจอง" {{ $item->statusroom == 'ติดจอง' ? 'selected' : '' }}>ติดจอง
                                 </option>
                             </select>
-                            @error('statusroom')
-                                <div class=" container">
-                                    <span>{{ $message }}</span>
-                                </div>
-                            @enderror
+
                         </div>
 
                         <div class="input-group mb-3 container">
                             <span class="input-group-text">มิเตอร์น้ำ</span>
                             <input type="text" class="form-control" aria-label="watermeter" name="watermeter"
-                                value="{{ $item->watermeter }}" >
+                                value="{{ $item->watermeter }}">
                             <span class="input-group-text">มิเตอร์ไฟ</span>
                             <input type="text" class="form-control" aria-label="electrimeter" name="electrimeter"
-                                value="{{ $item->electrimeter }}" >
-                            @error('watermeter')
-                                <div class=" container">
-                                    <span>{{ $message }}</span>
-                                </div>
-                            @enderror
-                            <span>
-                                @error('electrimeter')
-                                    <div class=" container">
-                                        <span>{{ $message }}</span>
-                                    </div>
-                                @enderror
-                            </span>
+                                value="{{ $item->electrimeter }}">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <input type="submit" value="บันทึก" class="btn btn-success">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ปิด</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >ปิด</button>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MeterController;
 use App\Http\Controllers\RoomController;
-use App\Models\Room;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +19,7 @@ Route::get('/', function() {return view('welcome');});
 
 // หน้าสถานะห้อง
 Route::get('/admin/room',[RoomController::class,'index'])->name('room'); //โชว์ข้อมูล
-Route::post('/store',[RoomController::class,'store']); //บันทึก
+Route::post('/storeRoom',[RoomController::class,'store']); //บันทึก
 Route::put('/update/{id}',[RoomController::class,'update'])->name('update.room'); // เเก้ไข
 Route::get('/delete/{id}',[RoomController::class,'destroy'])->name('delete.room');//ลบห้อง
 
@@ -28,7 +27,10 @@ Route::get('/delete/{id}',[RoomController::class,'destroy'])->name('delete.room'
 
 
 
-Route::get('/admin/meter', function() {return view('/admin/meter');})->name('admin/meter');
+Route::get('/admin/meter', [MeterController::class,'index'])->name('admin/meter');
+Route::post('/storeMeter{id}',[MeterController::class,'store'])->name('record.meter'); //บันทึก
+
+
 Route::get('/admin/bill', function() {return view('/admin/bill');})->name('admin/bill');
 Route::get('/admin/managerenters', function() {return view('/admin/managerenters');})->name('admin/managerenters');
 Route::get('/admin/report', function() {return view('/admin/report');})->name('admin/report');

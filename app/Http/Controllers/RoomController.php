@@ -15,7 +15,12 @@ class RoomController extends Controller
     public function index()
     {
         $rooms = Room::all();
-        return view('admin.room', compact('rooms'));
+        $totalRoom = Room::all('statusroom')->count();
+        $blankRoom = Room::where('statusroom','ห้องว่าง')->count();
+        $unblankRoom = Room::where('statusroom','ห้องไม่ว่าง')->count();
+        $bookRoom = Room::where('statusroom','ติดจอง')->count();
+
+        return view('admin.room', compact('rooms','totalRoom','blankRoom','unblankRoom','bookRoom'));
     }
 
     /**
@@ -31,33 +36,14 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
-            [
-                'numroom' => 'required',
-                'typeroom' => 'required',
-                'statusroom' => 'required',
-                'watermeter' => 'required|integer',
-                'electrimeter' => 'required|integer'
-            ],
-            [
-                'numroom.required' => 'กรุณาป้อนหมายเลขห้อง',
-                'typeroom.required' => 'กรุณาเลือกประเภทห้อง',
-                'statusroom.required' => 'กรุณาเลือกสถานะห้อง',
-                'watermeter.required' => 'กรุณากรอกหมายเลขมิเตอร์',
-                'watermeter.integer' => 'กรุณากรอกเป็นตัวเลขเท่านั้น',
-                'electrimeter.required' => 'กรุณากรอกหมายเลขมิเตอร์',
-                'electrimeter.integer' => 'กรุณากรอกเป็นตัวเลขเท่านั้น',
-            ]
-        );
 
-        $data = [
+        $data = Room::create([
             'numroom' => $request->numroom,
             'typeroom' => $request->typeroom,
             'statusroom' => $request->statusroom,
             'watermeter' => $request->watermeter,
-            'electrimeter' => $request->electrimeter
-        ];
-        DB::table('rooms')->insert($data);
+            'electrimeter' => $request->electrimeter,
+        ]);
         return redirect('admin/room');
     }
 
@@ -84,35 +70,24 @@ class RoomController extends Controller
     public function update(Request $request, $id)
     {
         $room = Room::findOrFail($id);
-        $validatedData = $request->validate(
-            [
-                'numroom' => 'required',
-                'typeroom' => 'required',
-                'statusroom' => 'required',
-                'watermeter' => 'required|integer',
-                'electrimeter' => 'required|integer'
-            ],
-            [
-                'numroom.required' => 'กรุณาป้อนหมายเลขห้อง',
-                'typeroom.required' => 'กรุณาเลือกประเภทห้อง',
-                'statusroom.required' => 'กรุณาเลือกสถานะห้อง',
-                'watermeter.required' => 'กรุณากรอกหมายเลขมิเตอร์',
-                'watermeter.integer' => 'กรุณากรอกเป็นตัวเลขเท่านั้น',
-                'electrimeter.required' => 'กรุณากรอกหมายเลขมิเตอร์',
-                'electrimeter.integer' => 'กรุณากรอกเป็นตัวเลขเท่านั้น',
-            ]
-        );
+        $data = [
+            'numroom' => $request->numroom,
+            'typeroom' => $request->typeroom,
+            'statusroom' => $request->statusroom,
+            'watermeter' => $request->watermeter,
+            'electrimeter' => $request->electrimeter
+        ];
 
-        $room->update($validatedData);
+        $room->update($data);
         return redirect('admin/room');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Room $room,$id)
+    public function destroy(Room  $room, $id)
     {
-        DB::table('rooms')->where('id',$id)->delete();
+        $delData = Room::findOrFail($id)->delete();
         return redirect('admin/room');
     }
 }

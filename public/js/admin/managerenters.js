@@ -1,5 +1,5 @@
 function editRenter() {
-    let edits = document.getElementById("editdata");
+    let edits = document.getElementById("ditdata");
 
     if (edits.style.display === "" || edits.style.display === "none") {
         edits.style.display = "block";

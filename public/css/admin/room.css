@@ -5,7 +5,8 @@
 .dataroom {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 100px;
 }
 
 .room .dataroom .card {
@@ -42,7 +43,7 @@
 }
 
 .card-data-room .card {
-    width: 120px;
+    width: 120px ;
 }
 
 .card-data-room .card .card-header {
