@@ -15,10 +15,10 @@ class MeterController extends Controller
      */
     public function index()
     {
-        $meterID = meter::whereMonth('created_at', Carbon::now()->month)->get()->pluck("numroom");
-        $statusrooms = room::where('statusroom', 'ห้องไม่ว่าง')->whereNotIn("numroom",$meterID)->get();
+        $meterDate = meter::whereMonth('created_at', Carbon::now()->month)->get()->pluck("room_id");
+        $statusrooms = room::where('statusroom', 'ห้องไม่ว่าง')->whereNotIn("id",$meterDate)->get();
 
-        return view('/admin/meter' , compact('meterID','statusrooms'));
+            return view('admin.meter' , compact('meterDate','statusrooms'));
     }
 
     /**
@@ -34,9 +34,10 @@ class MeterController extends Controller
      */
     public function store(Request $request ,$id)
     {
-        $NumberRoom = Room::findOrFail($id);
+        $rooms = Room::findOrFail($id);
+
         $data = Meter::create([
-            'numroom' => $NumberRoom->numroom,
+            'room_id' => $rooms->id,
             'beforeWM' => $request->BFwatermeter,
             'beforeEVM' => $request->BFelectrimeter,
             'afterWM' => $request->AFwatermeter,
@@ -44,7 +45,15 @@ class MeterController extends Controller
             'totalWM' => $request->TTwatermeter,
             'totalEV' => $request->TTelectrimeter,
         ]);
-         return redirect('admin/meter');
+
+        $datameter = [
+            'watermeter' => $request->AFwatermeter,
+            'electrimeter' => $request->AFelectrimeter,
+        ];
+
+        $rooms->update( $datameter);
+
+         return redirect('admin/showMeter');
 
     }
 

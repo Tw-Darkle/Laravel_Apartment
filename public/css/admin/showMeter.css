@@ -1,0 +1,15 @@
+.bill-meter {
+    background:#fff;
+    margin-top: 8%;
+    width: 800px !important;
+    height: 600px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.bill-meter p {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+}

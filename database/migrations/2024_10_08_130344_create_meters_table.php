@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('meters', function (Blueprint $table) {
             $table->id();
-            $table->string('numroom');
+            $table->unsignedBigInteger('room_id');
+            $table->foreign('room_id')->references('id')->on('Rooms');
             $table->integer('beforeWM');
             $table->integer('beforeEVM');
             $table->integer('afterWM');

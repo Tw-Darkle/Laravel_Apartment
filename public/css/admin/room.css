@@ -2,6 +2,10 @@
     margin: 15px;
 }
 
+.setlink{
+    color: white !important;
+}
+
 .dataroom {
     display: flex;
     flex-direction: row;

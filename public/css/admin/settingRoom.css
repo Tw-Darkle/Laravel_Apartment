@@ -1,0 +1,23 @@
+.settings {
+    background:#fff;
+    margin-top: 8%;
+    width: 500px !important;
+    height: 400px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+.settings p {
+    margin-top: 20px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.settings .button {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
