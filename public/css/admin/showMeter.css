@@ -13,3 +13,17 @@
     display: flex;
     justify-content: center;
 }
+
+.bill-meter input {
+    border: none;
+    width: 50%;
+}
+
+.bill-meter .btns-show {
+    display: flex;
+    justify-content: center;
+}
+
+.bill-meter .btns-show input {
+    width: 20%;
+}

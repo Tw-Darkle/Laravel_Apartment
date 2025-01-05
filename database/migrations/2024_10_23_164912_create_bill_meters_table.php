@@ -16,11 +16,13 @@ return new class extends Migration
             $table->unsignedBigInteger('room_id');
             $table->foreign('room_id')->references('id')->on('Rooms');
             $table->integer('beforeWM');
-            $table->integer('beforeEVM');
+            $table->integer('beforeEV');
             $table->integer('afterWM');
-            $table->integer('afterEVM');
+            $table->integer('afterEV');
             $table->integer('totalWM');
             $table->integer('totalEV');
+            $table->integer('priceWM');
+            $table->integer('priceEV');
             $table->integer('totalPriceWM');
             $table->integer('totalPriceEV');
             $table->integer('CAMfee');

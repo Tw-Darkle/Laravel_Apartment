@@ -17,7 +17,6 @@ class MeterController extends Controller
     {
         $meterDate = meter::whereMonth('created_at', Carbon::now()->month)->get()->pluck("room_id");
         $statusrooms = room::where('statusroom', 'ห้องไม่ว่าง')->whereNotIn("id",$meterDate)->get();
-
             return view('admin.meter' , compact('meterDate','statusrooms'));
     }
 
@@ -53,7 +52,7 @@ class MeterController extends Controller
 
         $rooms->update( $datameter);
 
-         return redirect('admin/showMeter');
+         return redirect('admin/showMeter/'. $data->id);
 
     }
 

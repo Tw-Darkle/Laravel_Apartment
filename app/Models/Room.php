@@ -16,4 +16,9 @@ class Room extends Model
     {
         return $this->hasMany(Meter::class);
     }
+
+    public function bill_meters() : HasMany
+    {
+        return $this->hasMany(BillMeter::class,'room_id', 'id');
+    }
 }

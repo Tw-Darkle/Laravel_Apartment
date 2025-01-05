@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\BillController;
 use App\Http\Controllers\BillMeterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MeterController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SettingRoomController;
+use App\Http\Controllers\ShowbillsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +34,11 @@ Route::get('/delete/{id}',[RoomController::class,'destroy'])->name('delete.room'
 // หน้ามิเตอร์
 Route::get('/admin/meter', [MeterController::class,'index'])->name('admin.meter');
 Route::post('/storeMeter{id}',[MeterController::class,'store'])->name('record.meter'); //บันทึก
-Route::get('/admin/showMeter', [BillMeterController::class,'index'])->name('admin.showMeter');
+Route::get('/admin/showMeter/{id}', [ShowbillsController::class,'index'])->name('admin.showMeter');
+Route::post('/bills/{id}',[ShowbillsController::class,'store'])->name('bills.store');//บันทึก
 
 // หน้าบิล
-//Route::get('/admin/bill', [BillController::class,'index'])->name('admin.bill');
+Route::get('/admin/bill', [BillMeterController::class,'index'])->name('admin.bill');
 
 
 
