@@ -1,9 +1,15 @@
-.table-data-renters p {
+.Data-renters p {
     display: flex;
     justify-content: center;
     font-size: 3rem;
     color: var(--textcolor);
 }
+
+.Data-renters .btns{
+ margin-left: 20%;
+ margin-bottom: 10px;
+}
+
 .table-bg {
     position: absolute;
     left: 20%;

@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\BillMeterController;
+use App\Http\Controllers\ManagerRenterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MeterController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SettingRoomController;
 use App\Http\Controllers\ShowbillsController;
+use App\Models\ManagerRenter;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,10 +42,11 @@ Route::post('/bills/{id}',[ShowbillsController::class,'store'])->name('bills.sto
 // หน้าบิล
 Route::get('/admin/bill', [BillMeterController::class,'index'])->name('admin.bill');
 
+// หน้าการจัดการผู้เช้า
+Route::get('/admin/managerenters', [ManagerRenterController::class,'index'])->name('admin.managerenters');
 
 
 
-Route::get('/admin/managerenters', function() {return view('/admin/managerenters');})->name('admin/managerenters');
 Route::get('/admin/report', function() {return view('/admin/report');})->name('admin/report');
 Route::get('/user/room', function() {return view('/user/room');})->name('user/room');
 Route::get('/user/bill', function() {return view('/user/bill');})->name('user/bill');
