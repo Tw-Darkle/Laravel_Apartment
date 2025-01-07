@@ -44,6 +44,8 @@ Route::get('/admin/bill', [BillMeterController::class,'index'])->name('admin.bil
 
 // หน้าการจัดการผู้เช้า
 Route::get('/admin/managerenters', [ManagerRenterController::class,'index'])->name('admin.managerenters');
+Route::post('/storeRenters',[ManagerRenterController::class,'store']); //บันทึก
+
 
 
 

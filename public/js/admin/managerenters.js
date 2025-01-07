@@ -1,17 +1,4 @@
-function editRenter() {
-    let edits = document.getElementById("ditdata");
 
-    if (edits.style.display === "" || edits.style.display === "none") {
-        edits.style.display = "block";
-    }
-}
-
-function closepopup() {
-    console.log(editdata.style.display);
-    if (document.getElementById("editdata").style.display === "block") {
-        document.getElementById("editdata").style.display = "none";
-    }
-}
 
 let imgInput1 = document.getElementById("inputFile1");
 let imgInput2 = document.getElementById("inputFile2");
@@ -32,16 +19,3 @@ imgInput2.onchange = (evt) => {
     }
 };
 
-function dataRenters() {
-    let show = document.getElementById("showDataRenters");
-
-    if (show.style.display === "" || show.style.display === "none") {
-        show.style.display = "block";
-    }
-}
-
-function closepopup1() {
-  if (document.getElementById("showDataRenters").style.display === "block") {
-      document.getElementById("showDataRenters").style.display = "none";
-  }
-}
