@@ -33,12 +33,14 @@
                     <tbody>
                         <tr>
                             <td>{{ $item->NumberRoom }}</td>
-                            <td>{{ $item->FullName }}  {{ $item->LastName }}</td>
+                            <td>{{ $item->FullName }} {{ $item->LastName }}</td>
                             <td> {{ $item->Tel }} </td>
                             <td> {{ $item->HomeNumber }} {{ $item->Moo }} ...</td>
-                            <td> <button class="btn " data-bs-toggle="modal"data-bs-target="#ShowData{{ $item->id }}">รายละเอียด</button>
+                            <td> <button class="btn "
+                                    data-bs-toggle="modal"data-bs-target="#ShowData{{ $item->id }}">รายละเอียด</button>
                             </td>
-                            <td><button class="btn " data-bs-toggle="modal"data-bs-target="#editData{{ $item->id }}">แก้ไข</button></td>
+                            <td><button class="btn "
+                                    data-bs-toggle="modal"data-bs-target="#editData{{ $item->id }}">แก้ไข</button></td>
                             </td>
                             <td>ลบ</td>
                         </tr>
@@ -50,7 +52,8 @@
 
     {{--  popup create data renters  --}}
 
-    <form class="modal fade" id="CreateRenters" tabindex="-1" aria-labelledby="data" aria-hidden="true" method="POST" enctype="multipart/form-data" action="/storeRenters">
+    <form class="modal fade" id="CreateRenters" tabindex="-1" aria-labelledby="data" aria-hidden="true" method="POST"
+        enctype="multipart/form-data" action="/storeRenters">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -146,171 +149,219 @@
     {{--  popup edit data renters  --}}
 
     @foreach ($Datas as $item)
-    <form class="modal fade" id="editData{{ $item->id }}" tabindex="-1" aria-labelledby="data" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">เเก้ไขข้อมูลผู้เช่า</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                @csrf
-                <div class="modal-body">
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">ชื่อ</span>
-                        <input type="text" class="form-control" aria-label="name" name="name"  value="{{ $item->FullName }}">
-                        <span class="input-group-text">นามสกุล</span>
-                        <input type="text" class="form-control" aria-label="lastname" name="lastname"  value=" {{ $item->LastName }}">
+        <form class="modal fade" id="editData{{ $item->id }}" tabindex="-1" aria-labelledby="data"
+            aria-hidden="true" method="POST" enctype="multipart/form-data"
+            action="{{ route('update.renters', $item->id) }}">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">เเก้ไขข้อมูลผู้เช่า</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">ชื่อเล่น</span>
-                        <input type="text" class="form-control" aria-label="nickname" name="nickname"  value="{{ $item->NickName }}">
-                        <span class="input-group-text">อายุ</span>
-                        <input type="text" class="form-control" aria-label="age" name="age" value="{{ $item->Age }}" >
-                        <span class="input-group-text">ว/ด/ป</span>
-                        <input type="date" class="form-control" aria-label="birthday" name="birthday"  value="{{ $item->BirthDay }}">
-                    </div>
-
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">เบอร์โทร</span>
-                        <input type="text" class="form-control" aria-label="tell" name="tell"  value="{{ $item->Tel }}">
-                        <span class="input-group-text">เลขห้อง</span>
-                        <input type="text" class="form-control" aria-label="" name="numberroom"  value="{{ $item->NumberRoom }}">
-                        <label class="input-group-text" for="inputGroupSelect02">ประเภทห้อง</label>
-                        <input class="form-control" id="inputGroupSelect02" name="typeroom"  value="{{ $item->TypeRoom }}">
-                    </div>
-
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">บ้านเลขที่</span>
-                        <input type="text" class="form-control" aria-label="codehouse" name="codehouse"  value="{{ $item->HomeNumber}}">
-                        <span class="input-group-text">หมู่</span>
-                        <input type="text" class="form-control" aria-label="moo" name="moo"  value="{{ $item->Moo }}">
-                        <span class="input-group-text">ซอย</span>
-                        <input type="text" class="form-control" aria-label="soy" name="soy"  value="{{ $item->Soi }}">
-                        <span class="input-group-text">ตำบล</span>
-                        <input type="text" class="form-control" aria-label="tambon" name="tambon"  value="{{ $item->Tumbon }}">
-                    </div>
-
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">อำเภอ</span>
-                        <input type="text" class="form-control" aria-label="district" name="distict"  value="{{ $item->Ampher }}">
-                        <span class="input-group-text">จังหวัด</span>
-                        <input type="text" class="form-control" aria-label="country" name="country"  value="{{ $item->Province }}">
-                        <span class="input-group-text">รหัสไปรษณีย์</span>
-                        <input type="text" class="form-control" aria-label="postcode" name="postcode"  value="{{ $item->Post }}">
-                    </div>
-
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">มิเตอร์น้ำก่อนเข้าอยู่</span>
-                        <input type="text" class="form-control" aria-label="watermeter" name="watermeter"  value="{{ $item->BeforeWater }}">
-                        <span class="input-group-text">มิเตอร์ไฟก่อนเข้าอยู่</span>
-                        <input type="text" class="form-control" aria-label="electrimeter" name="electrimeter"
-                             value="{{ $item->BeforeEV }}">
-                    </div>
-
-                    <div class="up-file ">
-                        <div class="up-file1">
-                            <label class="form-label">สำเนาบัตรประชาชน</label>
-                            <img id="viewFile1" width="120">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">ชื่อ</span>
+                            <input type="text" class="form-control" aria-label="name" name="fullname"
+                                value="{{ $item->FullName }}">
+                            <span class="input-group-text">นามสกุล</span>
+                            <input type="text" class="form-control" aria-label="lastname" name="lastname"
+                                value=" {{ $item->LastName }}">
                         </div>
-                        <div class="up-file2">
-                            <label class="form-label">สำเนาทะเบียนบ้าน</label>
-                            <img id="viewFile2" width="120">
+
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">ชื่อเล่น</span>
+                            <input type="text" class="form-control" aria-label="nickname" name="nickname"
+                                value="{{ $item->NickName }}">
+                            <span class="input-group-text">อายุ</span>
+                            <input type="text" class="form-control" aria-label="age" name="age"
+                                value="{{ $item->Age }}">
+                            <span class="input-group-text">ว/ด/ป</span>
+                            <input type="date" class="form-control" aria-label="birthday" name="birthday"
+                                value="{{ $item->BirthDay }}">
+                        </div>
+
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">เบอร์โทร</span>
+                            <input type="text" class="form-control" aria-label="tell" name="tel"
+                                value="{{ $item->Tel }}">
+                            <label class="input-group-text" for="inputGroupSelect02">เลขห้อง</label>
+                            <select class="form-select" id="inputGroupSelect02" name="numroom"  required >
+                                <option selected >{{ $item->NumberRoom }}</option>
+                                @foreach ($numrooms as $num)
+                                    <option value="{{ $num->numroom }}">{{ $num->numroom }}</option>
+                                @endforeach
+                            </select>
+                            <label class="input-group-text" for="inputGroupSelect02">ประเภทห้อง</label>
+                            <input class="form-control" id="inputGroupSelect02" name="typeroom"
+                                value="{{ $item->TypeRoom }}" readonly>
+                        </div>
+
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">บ้านเลขที่</span>
+                            <input type="text" class="form-control" aria-label="codehouse" name="homenumber"
+                                value="{{ $item->HomeNumber }}">
+                            <span class="input-group-text">หมู่</span>
+                            <input type="text" class="form-control" aria-label="moo" name="moo"
+                                value="{{ $item->Moo }}">
+                            <span class="input-group-text">ซอย</span>
+                            <input type="text" class="form-control" aria-label="soy" name="soi"
+                                value="{{ $item->Soi }}">
+                            <span class="input-group-text">ตำบล</span>
+                            <input type="text" class="form-control" aria-label="tambon" name="tambon"
+                                value="{{ $item->Tumbon }}">
+                        </div>
+
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">อำเภอ</span>
+                            <input type="text" class="form-control" aria-label="district" name="ampher"
+                                value="{{ $item->Ampher }}">
+                            <span class="input-group-text">จังหวัด</span>
+                            <input type="text" class="form-control" aria-label="country" name="province"
+                                value="{{ $item->Province }}">
+                            <span class="input-group-text">รหัสไปรษณีย์</span>
+                            <input type="text" class="form-control" aria-label="postcode" name="post"
+                                value="{{ $item->Post }}">
+                        </div>
+
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">มิเตอร์น้ำก่อนเข้าอยู่</span>
+                            <input type="text" class="form-control" aria-label="watermeter" name="BFWater"
+                                value="{{ $item->BeforeWater }}">
+                            <span class="input-group-text">มิเตอร์ไฟก่อนเข้าอยู่</span>
+                            <input type="text" class="form-control" aria-label="electrimeter" name="BFEV"
+                                value="{{ $item->BeforeEV }}">
+                        </div>
+
+                        <div class="up-file ">
+                            <div class="up-file1">
+                                <label class="form-label">สำเนาบัตรประชาชน</label>
+                                <img src="{{ asset('uploads/' . $item->ImageID) }}" alt="{{ $item->ImageID }}"
+                                    width="150" id="viewFileEdit1">
+                                <input type="file" name="ImageID" class="form-control mt-3"id="inputFileEdit1"
+                                    required>
+                            </div>
+                            <div class="up-file2">
+                                <label class="form-label">สำเนาทะเบียนบ้าน</label>
+                                <img src="{{ asset('uploads/' . $item->ImageAddress) }}" alt="{{ $item->ImageAddress }}"
+                                    width="150" id="viewFileEdit2">
+                                <input type="file" name="ImageAddress" class="form-control mt-3"id="inputFileEdit2"
+                                    required>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="modal-footer">
-                    <input type="submit" value="บันทึก" class="btn btn-success">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ปิด</button>
+                    <div class="modal-footer">
+                        <input type="submit" value="บันทึก" class="btn btn-success">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ปิด</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
     @endforeach
 
     {{--  popup show data renters  --}}
 
-    @foreach ( $Datas as $item )
-     <div class="modal fade" id="ShowData{{ $item->id }}" tabindex="-1" aria-labelledby="Bill" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ข้อมูลผู้เช่า</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">ชื่อ</span>
-                        <input type="text" class="form-control" aria-label="name" name="name" readonly value="{{ $item->FullName }}">
-                        <span class="input-group-text">นามสกุล</span>
-                        <input type="text" class="form-control" aria-label="lastname" name="lastname" readonly value=" {{ $item->LastName }}">
+    @foreach ($Datas as $item)
+        <div class="modal fade" id="ShowData{{ $item->id }}" tabindex="-1" aria-labelledby="Bill"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ข้อมูลผู้เช่า</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">ชื่อเล่น</span>
-                        <input type="text" class="form-control" aria-label="nickname" name="nickname" readonly value="{{ $item->NickName }}">
-                        <span class="input-group-text">อายุ</span>
-                        <input type="text" class="form-control" aria-label="age" name="age" value="{{ $item->Age }}" readonly>
-                        <span class="input-group-text">ว/ด/ป</span>
-                        <input type="date" class="form-control" aria-label="birthday" name="birthday" readonly value="{{ $item->BirthDay }}">
-                    </div>
-
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">เบอร์โทร</span>
-                        <input type="text" class="form-control" aria-label="tell" name="tell" readonly value="{{ $item->Tel }}">
-                        <span class="input-group-text">เลขห้อง</span>
-                        <input type="text" class="form-control" aria-label="" name="numberroom" readonly value="{{ $item->NumberRoom }}">
-                        <label class="input-group-text" for="inputGroupSelect02">ประเภทห้อง</label>
-                        <input class="form-control" id="inputGroupSelect02" name="typeroom" readonly value="{{ $item->TypeRoom }}">
-                    </div>
-
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">บ้านเลขที่</span>
-                        <input type="text" class="form-control" aria-label="codehouse" name="codehouse" readonly value="{{ $item->HomeNumber}}">
-                        <span class="input-group-text">หมู่</span>
-                        <input type="text" class="form-control" aria-label="moo" name="moo" readonly value="{{ $item->Moo }}">
-                        <span class="input-group-text">ซอย</span>
-                        <input type="text" class="form-control" aria-label="soy" name="soy" readonly value="{{ $item->Soi }}">
-                        <span class="input-group-text">ตำบล</span>
-                        <input type="text" class="form-control" aria-label="tambon" name="tambon" readonly value="{{ $item->Tumbon }}">
-                    </div>
-
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">อำเภอ</span>
-                        <input type="text" class="form-control" aria-label="district" name="distict" readonly value="{{ $item->Ampher }}">
-                        <span class="input-group-text">จังหวัด</span>
-                        <input type="text" class="form-control" aria-label="country" name="country" readonly value="{{ $item->Province }}">
-                        <span class="input-group-text">รหัสไปรษณีย์</span>
-                        <input type="text" class="form-control" aria-label="postcode" name="postcode" readonly value="{{ $item->Post }}">
-                    </div>
-
-                    <div class="input-group mb-3 container">
-                        <span class="input-group-text">มิเตอร์น้ำก่อนเข้าอยู่</span>
-                        <input type="text" class="form-control" aria-label="watermeter" name="watermeter" readonly value="{{ $item->BeforeWater }}">
-                        <span class="input-group-text">มิเตอร์ไฟก่อนเข้าอยู่</span>
-                        <input type="text" class="form-control" aria-label="electrimeter" name="electrimeter"
-                            readonly value="{{ $item->BeforeEV }}">
-                    </div>
-
-                    <div class="up-file ">
-                        <div class="up-file1">
-                            <label class="form-label">สำเนาบัตรประชาชน</label>
-                            <img id="viewFile1" width="120">
+                    <div class="modal-body">
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">ชื่อ</span>
+                            <input type="text" class="form-control" aria-label="name" name="name" readonly
+                                value="{{ $item->FullName }}">
+                            <span class="input-group-text">นามสกุล</span>
+                            <input type="text" class="form-control" aria-label="lastname" name="lastname" readonly
+                                value=" {{ $item->LastName }}">
                         </div>
-                        <div class="up-file2">
-                            <label class="form-label">สำเนาทะเบียนบ้าน</label>
-                            <img id="viewFile2" width="120">
+
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">ชื่อเล่น</span>
+                            <input type="text" class="form-control" aria-label="nickname" name="nickname" readonly
+                                value="{{ $item->NickName }}">
+                            <span class="input-group-text">อายุ</span>
+                            <input type="text" class="form-control" aria-label="age" name="age"
+                                value="{{ $item->Age }}" readonly>
+                            <span class="input-group-text">ว/ด/ป</span>
+                            <input type="date" class="form-control" aria-label="birthday" name="birthday" readonly
+                                value="{{ $item->BirthDay }}">
+                        </div>
+
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">เบอร์โทร</span>
+                            <input type="text" class="form-control" aria-label="tell" name="tell" readonly
+                                value="{{ $item->Tel }}">
+                            <span class="input-group-text">เลขห้อง</span>
+                            <input type="text" class="form-control" aria-label="" name="numberroom" readonly
+                                value="{{ $item->NumberRoom }}">
+                            <label class="input-group-text" for="inputGroupSelect02">ประเภทห้อง</label>
+                            <input class="form-control" id="inputGroupSelect02" name="typeroom" readonly
+                                value="{{ $item->TypeRoom }}">
+                        </div>
+
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">บ้านเลขที่</span>
+                            <input type="text" class="form-control" aria-label="codehouse" name="codehouse" readonly
+                                value="{{ $item->HomeNumber }}">
+                            <span class="input-group-text">หมู่</span>
+                            <input type="text" class="form-control" aria-label="moo" name="moo" readonly
+                                value="{{ $item->Moo }}">
+                            <span class="input-group-text">ซอย</span>
+                            <input type="text" class="form-control" aria-label="soy" name="soy" readonly
+                                value="{{ $item->Soi }}">
+                            <span class="input-group-text">ตำบล</span>
+                            <input type="text" class="form-control" aria-label="tambon" name="tambon" readonly
+                                value="{{ $item->Tumbon }}">
+                        </div>
+
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">อำเภอ</span>
+                            <input type="text" class="form-control" aria-label="district" name="distict" readonly
+                                value="{{ $item->Ampher }}">
+                            <span class="input-group-text">จังหวัด</span>
+                            <input type="text" class="form-control" aria-label="country" name="country" readonly
+                                value="{{ $item->Province }}">
+                            <span class="input-group-text">รหัสไปรษณีย์</span>
+                            <input type="text" class="form-control" aria-label="postcode" name="postcode" readonly
+                                value="{{ $item->Post }}">
+                        </div>
+
+                        <div class="input-group mb-3 container">
+                            <span class="input-group-text">มิเตอร์น้ำก่อนเข้าอยู่</span>
+                            <input type="text" class="form-control" aria-label="watermeter" name="watermeter"
+                                readonly value="{{ $item->BeforeWater }}">
+                            <span class="input-group-text">มิเตอร์ไฟก่อนเข้าอยู่</span>
+                            <input type="text" class="form-control" aria-label="electrimeter" name="electrimeter"
+                                readonly value="{{ $item->BeforeEV }}">
+                        </div>
+
+                        <div class="up-file ">
+                            <div class="up-file1">
+                                <label class="form-label">สำเนาบัตรประชาชน</label>
+                                <img src="{{ asset('uploads/' . $item->ImageID) }}" alt="{{ $item->ImageID }}"
+                                    width="200">
+                            </div>
+                            <div class="up-file2">
+                                <label class="form-label">สำเนาทะเบียนบ้าน</label>
+                                <img src="{{ asset('uploads/' . $item->ImageAddress) }}" alt="{{ $item->ImageAddress }}"
+                                    width="200">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ปิด</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ปิด</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     @endforeach
 
 

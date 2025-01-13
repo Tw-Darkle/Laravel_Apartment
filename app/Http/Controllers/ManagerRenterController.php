@@ -37,6 +37,7 @@ class ManagerRenterController extends Controller
         $chackNumRoom = $request->numroom;
         $chackID = Room::where('numroom', $chackNumRoom)->get()->first();
 
+
             $fileID = $request->file('ImageID');
             $filenameID = time() . '_' . $fileID->getClientOriginalName();
             $fileID->move(public_path('uploads'), $filenameID);
@@ -55,7 +56,7 @@ class ManagerRenterController extends Controller
             'BirthDay' => $request->birthday,
             'Tel' => $request->tel,
             'NumberRoom' => $request->numroom,
-            'TypeRoom' => $request->typeroom,
+            'TypeRoom' => $chackID->typeroom,
             'HomeNumber' => $request->homenumber,
             'Moo' => $request->moo,
             'Soi' => $request->soi,
@@ -84,15 +85,46 @@ class ManagerRenterController extends Controller
      */
     public function edit(ManagerRenter $managerRenter)
     {
-        //
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ManagerRenter $managerRenter)
+    public function update(Request $request, $id)
     {
-        //
+        $fileID = $request->file('ImageID');
+        $filenameID = time() . '_' . $fileID->getClientOriginalName();
+        $fileID->move(public_path('uploads'), $filenameID);
+
+        $fileAddress = $request->file('ImageAddress');
+        $filenameAddress = time() . '_' . $fileAddress->getClientOriginalName();
+        $fileAddress->move(public_path('uploads'), $filenameAddress);
+
+        $renters = ManagerRenter::findOrFail($id);
+        $data = [
+            'FullName' => $request->fullname,
+            'LastName' => $request->lastname,
+            'NickName' => $request->nickname,
+            'Age' => $request->age,
+            'BirthDay' => $request->birthday,
+            'Tel' => $request->tel,
+            'NumberRoom' => $request->numroom,
+            'HomeNumber' => $request->homenumber,
+            'Moo' => $request->moo,
+            'Soi' => $request->soi,
+            'Tumbon' => $request->tambon,
+            'Ampher' => $request->ampher,
+            'Province' => $request->province,
+            'Post' => $request->post,
+            'BeforeWater' => $request->BFWater,
+            'BeforeEV' => $request->BFEV,
+            'ImageID' => $filenameID,
+            'ImageAddress' => $filenameAddress,
+        ];
+
+        $renters->update($data);
+        return redirect('admin/managerenters');
     }
 
     /**
