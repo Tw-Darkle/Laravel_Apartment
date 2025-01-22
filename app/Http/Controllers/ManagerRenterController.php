@@ -130,8 +130,9 @@ class ManagerRenterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ManagerRenter $managerRenter)
+    public function destroy(ManagerRenter $managerRenter, $id)
     {
-        //
+        $delRenters = ManagerRenter::findOrFail($id)->delete();
+        return redirect('admin/managerenters');
     }
 }

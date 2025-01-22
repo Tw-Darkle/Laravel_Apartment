@@ -18,10 +18,20 @@
     text-align: center;
 }
 
-.btns-sub-close {
+.room .dataroom .statusColor {
+    width: 150px;
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 80px;
+    flex-direction: column;
+    text-align: start;
+}
+.room .dataroom .statusColor .dot1 {
+    color: green;
+}
+.room .dataroom .statusColor .dot2 {
+    color: orangered;
+}
+.room .dataroom .statusColor .dot3 {
+    color: rgb(240, 236, 33);
 }
 
 .input-group-text {
@@ -48,6 +58,10 @@
 
 .card-data-room .card {
     width: 120px ;
+}
+
+.card-data-room .card .NotShow {
+    display: none;
 }
 
 .card-data-room .card .card-header {

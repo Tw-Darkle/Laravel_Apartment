@@ -4,9 +4,11 @@ use App\Http\Controllers\BillMeterController;
 use App\Http\Controllers\ManagerRenterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MeterController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SettingRoomController;
 use App\Http\Controllers\ShowbillsController;
+use App\Http\Controllers\UserRoomController;
 use App\Models\ManagerRenter;
 
 /*
@@ -46,12 +48,19 @@ Route::get('/admin/bill', [BillMeterController::class,'index'])->name('admin.bil
 Route::get('/admin/managerenters', [ManagerRenterController::class,'index'])->name('admin.managerenters');
 Route::post('/storeRenters',[ManagerRenterController::class,'store']); //บันทึก
 Route::put('/admin/update/{id}',[ManagerRenterController::class,'update'])->name('update.renters'); // เเก้ไข
+Route::get('/admin/delete/{id}',[ManagerRenterController::class,'destroy'])->name('delete.renters');//ลบห้อง
+
+// หน้าแจ้งซ่อม
+Route::get('/admin/report', [ReportController::class,'index'])->name('admin.report');
+Route::put('/admin/updateReport/{id}',[ReportController::class,'update'])->name('update.report'); // เเก้ไข
 
 
 
 
-Route::get('/admin/report', function() {return view('/admin/report');})->name('admin/report');
-Route::get('/user/room', function() {return view('/user/room');})->name('user/room');
+// หน้าสถานะห้อง ของผู้ใช่งาน
+Route::get('/user/room',  [UserRoomController::class,'index'])->name('user.room');
+
+
 Route::get('/user/bill', function() {return view('/user/bill');})->name('user/bill');
 Route::get('/user/datapersonal', function() {return view('/user/datapersonal');})->name('user/datapersonal');
 Route::get('/user/payment', function() {return view('/user/payment');})->name('user/payment');

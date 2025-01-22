@@ -46,17 +46,17 @@
                     <h1 class="modal-title fs-4">เเจ้งเรื่อง</h1>
                 </div>
                 <div class="modal-body m-3">
-                    <select class="form-select container" >
+                    <select class="form-select container">
                         <option selected>โปรดเลือกหัวข้อการเเจ้ง</option>
                         <option value="1">อินเตอร์เน็ตเสีย</option>
                         <option value="2">อุปกรณ์ไฟฟ้าเสีย</option>
                         <option value="3">ท่อน้ำชำรุด</option>
-                      </select>
+                    </select>
 
-                      <div class="mb-3 mt-3 box-text">
+                    <div class="mb-3 mt-3 box-text">
                         <label for="exampleFormControlTextarea1" class="form-label ">กรอกรายละเอียดเพิ่มเติม</label>
                         <textarea class="form-control container" id="exampleFormControlTextarea1" rows="3"></textarea>
-                      </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success">ยืนยัน</button>

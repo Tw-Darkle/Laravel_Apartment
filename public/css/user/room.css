@@ -8,11 +8,17 @@
 .status-room {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 100px;
 }
 
-.status-room span {
-    font-size: 1.5rem;
+.status-room .card {
+    width: 115px;
+    text-align: center;
+}
+
+.status-room  .card .card-header {
+    background-color: #ffdda1 !important;
 }
 
 .card-data-room {
@@ -20,10 +26,13 @@
 }
 
 .card-data-room {
-    position: absolute;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    gap: 10px;
     text-align: center;
     align-items: center;
-    z-index: 0;
+    z-index: -1;
 }
 
 .card-data-room .card {
@@ -37,7 +46,6 @@
 
 .card-data-room .card .card-header {
     padding: none !important;
-    background-color: #ffdda1;
 }
 
 .card-body {

@@ -7,20 +7,40 @@
 
 @section('content')
     <div class="room">
-        <div class="dataroom">
-            <div class="card">
-                <div class="card-header">
-                    ห้องทั้งหมด
+        <div class="dataroom mb-3">
+            <div class="card statusColor">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor"
+                        class="bi bi-dot dot1" viewBox="0 0 16 16">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+                    </svg> <span>ห้องว่าง</span>
                 </div>
-                <div class="card-body">
-                    {{ $totalRoom }}
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor"
+                        class="bi bi-dot dot2" viewBox="0 0 16 16">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+                    </svg> <span>ห้องไม่ว่าง</span>
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor"
+                        class="bi bi-dot dot3" viewBox="0 0 16 16">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+                    </svg> <span>ห้องติดจอง</span>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
+                    ห้องทั้งหมด
+                </div>
+                <div class="card-body fs-3">
+                    {{ $totalRoom }}
+                </div>
+            </div>
+            <div class="card ">
+                <div class="card-header">
                     ห้องว่าง
                 </div>
-                <div class="card-body">
+                <div class="card-body fs-3">
                     {{ $blankRoom }}
                 </div>
             </div>
@@ -28,7 +48,7 @@
                 <div class="card-header">
                     เข้าพัก
                 </div>
-                <div class="card-body">
+                <div class="card-body fs-3">
                     {{ $unblankRoom }}
                 </div>
             </div>
@@ -36,7 +56,7 @@
                 <div class="card-header">
                     ติดจอง
                 </div>
-                <div class="card-body">
+                <div class="card-body fs-3">
                     {{ $bookRoom }}
                 </div>
             </div>
@@ -53,10 +73,13 @@
         </button>
 
         <a type="button" class="btn btn-success setlink" href="/admin/settingRoom">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
-                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear"
+                viewBox="0 0 16 16">
+                <path
+                    d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
+                <path
+                    d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
+            </svg>
             ตั้งค่าห้อง
         </a>
 
@@ -135,7 +158,7 @@
     <div class="card-data-room">
         @foreach ($rooms as $item)
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" id="checkStatus">
                     ห้อง {{ $item->numroom }}
                 </div>
                 <div class="card-body ">
@@ -158,8 +181,8 @@
     <!-- Modal Show Card Data Room -->
 
     @foreach ($rooms as $item)
-        <div class="modal fade " id="showdata{{ $item->id }}" tabindex="-1" aria-labelledby="showdataModalLabel" data-bs-backdrop="static" data-bs-keyboard="false"
-            aria-hidden="true">
+        <div class="modal fade " id="showdata{{ $item->id }}" tabindex="-1"
+            aria-labelledby="showdataModalLabel{{ $item->id }}" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -196,7 +219,8 @@
                     </div>
                     <div class="modal-footer">
                         <a type="button" class="btn btn-danger" href="{{ route('delete.room', $item->id) }}">ลบห้อง</a>
-                        <button type="button" class="btn btn-warning edit-button" data-bs-toggle="modal" data-bs-target="#editRoom{{ $item->id }}">แก้ไขข้อมูล</button>
+                        <button  class="btn btn-warning edit-button"  data-bs-toggle="modal"
+                          data-bs-target="#editRoom{{ $item->id }}"   >แก้ไขข้อมูล</button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ปิด</button>
                     </div>
                 </div>
@@ -208,10 +232,10 @@
     <!-- Modal Form Edit Card Data Room-->
 
     @foreach ($rooms as $item)
-        <form class="modal fade editRoom " id="editRoom{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="editRoomModalLabel" aria-hidden="true" method="POST"
+        <form class="modal fade editRoom " id="editRoom{{ $item->id }}" tabindex="-1"
+            aria-labelledby="editRoomModalLabel{{ $item->id }}" aria-hidden="true" method="POST"
             action="{{ route('update.room', $item->id) }}">
-            <div class="modal-dialog ">
+            <div class="modal-dialog  ">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="editRoomModalLabel">เเก้ไขข้อมูลห้อง</h1>
@@ -228,7 +252,7 @@
 
                         <div class="input-group mb-3 container">
                             <label class="input-group-text" for="inputGroupSelect02">ประเภทห้อง</label>
-                            <select class="form-select" id="inputGroupSelect02" name="typeroom">
+                            <select class="form-select" id="inputGroupSelect01" name="typeroom">
                                 <option selected>โปรดเลือก...</option>
                                 <option value="ห้องแอร์" {{ $item->typeroom == 'ห้องแอร์' ? 'selected' : '' }}>
                                     ห้องแอร์</option>
@@ -262,12 +286,13 @@
                     </div>
                     <div class="modal-footer">
                         <input type="submit" value="บันทึก" class="btn btn-success">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >ปิด</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ปิด</button>
                     </div>
                 </div>
             </div>
         </form>
     @endforeach
+
 
 @endsection
 @section('script')

@@ -42,7 +42,8 @@
                             <td><button class="btn "
                                     data-bs-toggle="modal"data-bs-target="#editData{{ $item->id }}">แก้ไข</button></td>
                             </td>
-                            <td>ลบ</td>
+                            <td><a type="button" class="btn "
+                                    href="{{ route('delete.renters', $item->id) }}">ลบ</a></td>
                         </tr>
                     </tbody>
                 @endforeach
@@ -187,8 +188,8 @@
                             <input type="text" class="form-control" aria-label="tell" name="tel"
                                 value="{{ $item->Tel }}">
                             <label class="input-group-text" for="inputGroupSelect02">เลขห้อง</label>
-                            <select class="form-select" id="inputGroupSelect02" name="numroom"  required >
-                                <option selected >{{ $item->NumberRoom }}</option>
+                            <select class="form-select" id="inputGroupSelect02" name="numroom" required>
+                                <option selected>{{ $item->NumberRoom }}</option>
                                 @foreach ($numrooms as $num)
                                     <option value="{{ $num->numroom }}">{{ $num->numroom }}</option>
                                 @endforeach
