@@ -9,8 +9,9 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SettingRoomController;
 use App\Http\Controllers\ShowbillsController;
 use App\Http\Controllers\UserBillController;
+use App\Http\Controllers\UserDataPersonalController;
+use App\Http\Controllers\UserPaymentController;
 use App\Http\Controllers\UserRoomController;
-use App\Models\ManagerRenter;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,11 +64,15 @@ Route::get('/user/room',  [UserRoomController::class,'index'])->name('user.room'
 
 // หน้าดูบิลเเละเเจ้งชำระเงิน
 Route::get('/user/bill', [UserBillController::class,'index'])->name('user.bill');
-Route::put('/user/updatebill/{id}',[UserBillController::class,'update'])->name('user.updateBill'); // เเก้ไข
+Route::put('/user/updatebill/{id}',[UserBillController::class,'update'])->name('user.updateBill');
+
+// หน้าข้อมูลผู้เช่า
+Route::get('/user/datapersonal',[UserDataPersonalController::class,'index'])->name('user.datapersonal');
+
+// หน้าประวัติการชำระเงิน
+Route::get('/user/payment', [UserPaymentController::class,'index'])->name('user.payment');
 
 
-Route::get('/user/datapersonal', function() {return view('/user/datapersonal');})->name('user/datapersonal');
-Route::get('/user/payment', function() {return view('/user/payment');})->name('user/payment');
 Route::get('/user/report', function() {return view('/user/report');})->name('user/report');
 
 

@@ -78,7 +78,7 @@
 
 
     {{--  model pay bill  --}}
-    @foreach ($bills as $item )
+    @foreach ( $bills as $item )
     <form class="modal fade" id="PayBill{{ $item->payments->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true" method="POST" enctype="multipart/form-data"
         action="{{ route('user.updateBill', $item->payments->id) }}">>
