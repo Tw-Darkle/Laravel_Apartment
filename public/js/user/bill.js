@@ -13,11 +13,14 @@ imgInput.onchange = (evt) => {
 let choice = document.getElementById("TypePay");
 
 choice.onchange = (evt) => {
-  const [num] = choice.value; 
-  if (num === "2") {
+  const num = choice.value;
+
+  if (num === "แบบชำระด้วยการโอน") {
    document.getElementById("upFile").style.display ="block";
   }
   else{
     document.getElementById("upFile").style.display ="none";
   }
 }
+
+

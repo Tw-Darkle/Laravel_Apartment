@@ -1,7 +1,6 @@
 @extends('layout_user')
 
-@section('title,payment')
-@endsection
+@section('title','payment')
 
 @section('styles')
     <link rel="stylesheet" href="/css/user/payment.css">
@@ -94,9 +93,9 @@
                 </tr>
             </tbody>
         </table>
-        
+
         <div class=" mt-2 img-data-pay">
-            หลักฐานการชำระเงิน : โอนจ่าย    
+            หลักฐานการชำระเงิน : โอนจ่าย
             <img src="" alt=""  width="150">
         </div>
 

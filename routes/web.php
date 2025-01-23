@@ -8,6 +8,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SettingRoomController;
 use App\Http\Controllers\ShowbillsController;
+use App\Http\Controllers\UserBillController;
 use App\Http\Controllers\UserRoomController;
 use App\Models\ManagerRenter;
 
@@ -60,8 +61,11 @@ Route::put('/admin/updateReport/{id}',[ReportController::class,'update'])->name(
 // หน้าสถานะห้อง ของผู้ใช่งาน
 Route::get('/user/room',  [UserRoomController::class,'index'])->name('user.room');
 
+// หน้าดูบิลเเละเเจ้งชำระเงิน
+Route::get('/user/bill', [UserBillController::class,'index'])->name('user.bill');
+Route::put('/user/updatebill/{id}',[UserBillController::class,'update'])->name('user.updateBill'); // เเก้ไข
 
-Route::get('/user/bill', function() {return view('/user/bill');})->name('user/bill');
+
 Route::get('/user/datapersonal', function() {return view('/user/datapersonal');})->name('user/datapersonal');
 Route::get('/user/payment', function() {return view('/user/payment');})->name('user/payment');
 Route::get('/user/report', function() {return view('/user/report');})->name('user/report');

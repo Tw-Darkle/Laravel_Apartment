@@ -1,7 +1,6 @@
 @extends('layout_user')
 
-@section('title,report')
-@endsection
+@section('title','report')
 
 @section('styles')
     <link rel="stylesheet" href="/css/user/report.css">
