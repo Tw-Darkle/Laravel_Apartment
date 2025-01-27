@@ -11,6 +11,7 @@ use App\Http\Controllers\ShowbillsController;
 use App\Http\Controllers\UserBillController;
 use App\Http\Controllers\UserDataPersonalController;
 use App\Http\Controllers\UserPaymentController;
+use App\Http\Controllers\UserReportController;
 use App\Http\Controllers\UserRoomController;
 
 /*
@@ -72,7 +73,9 @@ Route::get('/user/datapersonal',[UserDataPersonalController::class,'index'])->na
 // หน้าประวัติการชำระเงิน
 Route::get('/user/payment', [UserPaymentController::class,'index'])->name('user.payment');
 
+// หน้าแจ้งเรื่องซ่อม
+Route::get('/user/report', [UserReportController::class,'index'])->name('user.report');
+Route::post('/storeReport',[UserReportController::class,'store']); //บันทึก
 
-Route::get('/user/report', function() {return view('/user/report');})->name('user/report');
 
 

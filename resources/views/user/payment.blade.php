@@ -121,8 +121,6 @@
         </div>
     @endforeach
 
-
-
 @endsection
 
 @section('script')

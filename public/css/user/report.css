@@ -44,7 +44,17 @@
     width: 80%;
 }
 
-.modal .modal-footer {
-    justify-content: space-evenly;
-    padding: 10px;
+
+img {
+    border-radius: 0 !important;
+}
+
+.up-file {
+    display: flex;
+    justify-content: center;
+}
+
+.modal .modal-dialog .modal-content .modal-body .up-file img {
+    width: 240px;
+    height: 300px;
 }
